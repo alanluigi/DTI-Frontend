@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Front-end Pets
 
-## Available Scripts
 
-In the project directory, you can run:
+- Instalar dependências 
 
-### `yarn start`
+$ yarn install
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Executar localhost:3000
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+$ yarn start
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Sobre o projeto
 
-### `yarn build`
+Front-end construído utilizando React JS. A aplicação possui uma única página, onde o usuário deverá inserir 3 informações, data do banho, quantidade de pets grandes e quantidade de pets pequenos. Ao clicar em calcular será enviada uma requisição para o back-end que retornará o petshop mais barato de acordo com os parâmetros inseridos, este retorno é exibido em formato de alerta para o usuário.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Campos:
+Data Banho – Utilizado o componente “KeybordDatePicker” da lib material-ui, realizada parametrização através do estado para exibir a data atual e o usuário poderá utilizar de um calendário para selecionar a data desejada, esta data é armazenada no estado “selectedDate”.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Qtd. Pets Grandes – Utilizado o componente “TextField” da lib material-ui, realizada parametrização através do estado para exibir a quantidade 0 por padrão e o usuário poderá alterar os valores em números positivos inteiros, este número é armazenado no estado “qtdPetsGrandes”. Criada uma validação para entrada do usuário permitir apenas números positivos inteiros através da função “handlePetsGrandes”.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Qtd. Pets Pequenos – Utilizado o componente “TextField” da lib material-ui, realizada parametrização através do estado para exibir a quantidade 0 por padrão e o usuário poderá alterar os valores em números positivos inteiros, este número é armazenado no estado “qtdPetsPequenos”. Criada uma validação para entrada do usuário permitir apenas números positivos inteiros através da função “handlePetsPequenos”.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Botão:
+Calcular – Utilizado o componente “Button” da lib material-ui, ao clicar no botão é enviada uma requisição do tipo post para o backend, através da função “handleSubmit” utilizando o axios. No corpo da requisição são enviados os parâmetros dos campos anteriores, data banho, qtd pets grandes e qtd pets pequenos. O backend retorna um objeto contendo os dados do petshop mais barato de acordo com os parâmetros recebidos, este objeto é armazenado no estado “petShopAlert”, em seguida o componente “Alert” é exibido demonstrando os dados do estado “petShopAlert”.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+HTML e CSS:
+Divs:
+Container – Utilizado flex-box para posicionamento dos elementos filhos, flex-direction column para alinhamento dos elementos em coluna.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Logo-container – Utilizado flex-direction row, para que a img seja posicionada ao lado do h1.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Form-container – Utilizado flex direction column para alinhamento dos campos em coluna e justify-content space between, para um espaçamento igual entre os elementos.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
