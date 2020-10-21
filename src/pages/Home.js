@@ -9,10 +9,7 @@ import Collapse from '@material-ui/core/Collapse';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import DateFnsUtils from '@date-io/date-fns';
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker
-  } from '@material-ui/pickers'
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers'
 
 export default function Home() {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -46,21 +43,15 @@ export default function Home() {
     }
 
     async function handleSubmit(e) {
-        console.log(selectedDate.toLocaleDateString(), qtdPetsGrandes, qtdPetsPequenos)
         const response = await api.post('/', {
             data: selectedDate.toLocaleDateString(),
             petsPequenos: qtdPetsPequenos,
             petsGrandes: qtdPetsGrandes
         })
 
-        const { petShopMaisBarato } = response.data
+        setPetShopAlert(response.data.petShopMaisBarato)
 
-        console.log(petShopMaisBarato)
-
-        setPetShopAlert(petShopMaisBarato)
-
-        setOpenAlert(true)
-        
+        setOpenAlert(true) 
     }
 
     return (
